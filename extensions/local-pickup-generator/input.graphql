@@ -1,0 +1,23 @@
+query Input {
+  cart {
+    lines {
+      id
+      merchandise {
+        __typename
+        ...on ProductVariant
+        {
+          id
+          product {
+            productType
+            hasAnyTag(tags: ["bulky"])
+          }
+        }
+      }
+    }
+  }
+  locations {
+    id
+    handle
+    name
+  }
+}
